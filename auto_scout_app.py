@@ -23,7 +23,7 @@ hp=st.sidebar.slider("What is the hp of your car?", 60, 200, step=5)
 km=st.sidebar.slider("What is the km of your car", 0,200000, step=500)
 gearing_type=st.sidebar.radio('Select gear type',('Automatic','Semi-automatic','Manual'))
 car_model=st.sidebar.selectbox("Select model of your car", ('Audi A1', 'Audi A3', 'Opel Astra', 'Opel Corsa', 'Opel Insignia',
-       'Renault Clio', 'Renault Duster', 'Renault Espace'))
+       'Renault Clio', 'Dacia Duster', 'Renault Espace'))
 
 model=pickle.load(open("xgbmodel_autoscout","rb"))
 
@@ -44,7 +44,7 @@ st.table(df)
 def ordienc(df):
     gear = ['Automatic', 'Semi-automatic', 'Manual']
     mmodel = ['Audi A1', 'Audi A3', 'Opel Astra', 'Opel Corsa', 'Opel Insignia',
-       'Renault Clio', 'Renault Duster', 'Renault Espace']
+       'Renault Clio', 'Dacia Duster', 'Renault Espace']
     enc = OrdinalEncoder(categories=[mmodel, gear])
     df[['make_model', 'gearing_type']] = enc.fit_transform(df[['make_model', 'gearing_type']])
 
